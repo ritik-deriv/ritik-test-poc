@@ -28,6 +28,7 @@ jobs:
           mkdir -p ./pr
           echo "$ISSUE_NUMBER" > ./pr/ISSUE_NUMBER
           echo "$USERNAME" > ./pr/USERNAME
+          echo "USERNAME from Main Repo - $USERNAME"
 
       - name: Upload PR information to artifact
         uses: actions/upload-artifact@v2
