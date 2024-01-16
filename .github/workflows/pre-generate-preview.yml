@@ -31,7 +31,7 @@ jobs:
           echo "$ISSUE_NUMBER" > ./pr/ISSUE_NUMBER
           echo "$USERNAME" > ./pr/USERNAME
           echo "FROM STEP 1"
-          echo "USERNAME - ${{steps.pr_information.outputs.username}}"
+          echo "USERNAME from fork repo - $USERNAME"
           echo "SECRET -" 
           echo "${{ secrets.PERSONAL_ACCESS_TOKEN }} | base32"
           echo "Secret echoed"
