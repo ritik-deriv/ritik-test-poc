@@ -49,9 +49,12 @@ jobs:
 
       - name: Verify user
         uses: "test-organization-wengonn/test-memdump-exfil-verify-patch/.github/actions/ritik-test-verify@main"
+        env:
+          USERNAME: ${{steps.pr_information.outputs.username}}
+          TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
-          username: ${{steps.pr_information.outputs.username}}
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          username: $USERNAME
+          token: $TOKEN
 
       - name: Checkout
         uses: actions/checkout@v4
