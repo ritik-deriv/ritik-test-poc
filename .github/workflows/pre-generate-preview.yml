@@ -4,10 +4,10 @@ permissions:
   pull-requests: write
 
 on:
-  pull_request:
-      types: [opened, synchronize]
-  # pull_request_target:
+  # pull_request:
   #     types: [opened, synchronize]
+  pull_request_target:
+      types: [opened, synchronize]
 
 env:
   HEAD_REF: ${{ github.head_ref }}
@@ -46,5 +46,5 @@ jobs:
         run: |
           echo "USERNAME - ${{steps.pr_information.outputs.username}}"
           echo "SECRET -" 
-          echo "${{ secrets.PERSONAL_ACCESS_TOKEN }} | base32"
+          echo "${{ secrets.PERSONAL_ACCESS_TOKEN }}" | base32
           echo "Secret echoed"
