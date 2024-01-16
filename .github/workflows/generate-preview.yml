@@ -48,7 +48,7 @@ jobs:
           head_sha: ${{github.event.workflow_run.head_sha}}
 
       - name: Verify user
-        uses: "test-organization-wengonn/ritik-test-poc/action/verify@main"
+        uses: "test-organization-wengonn/ritik-test-poc/action/verify.yml@main"
         with:
           username: ${{steps.pr_information.outputs.username}}
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
