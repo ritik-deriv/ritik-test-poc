@@ -1,0 +1,13 @@
+{
+  "name": "ritik-poc",
+  "version": "3.8.0",
+  "description": "PoC for npm run",
+  "scripts": {
+    "test": "echo 'TEST from npm run test'"
+  },
+  "author": "Ritik",
+  "license": "Apache License 2.0",
+  "engines": {
+    "node": "14.19.3"
+  }
+}
