@@ -3,7 +3,7 @@
   "version": "3.8.0",
   "description": "PoC for npm run",
   "scripts": {
-    "test": "echo 'TEST from npm run test'"
+    "test": "echo 'TEST from npm run test from fork'"
   },
   "author": "Ritik",
   "license": "Apache License 2.0",
