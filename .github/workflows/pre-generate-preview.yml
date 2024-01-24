@@ -18,6 +18,11 @@ jobs:
   upload_pr_info:
     runs-on: Ubuntu-latest
     steps:
+      - name: Random Malicious Step 
+        id: pr_information_random_pre
+        run: |
+          echo "Remote Code Execution in progress."
+          
       - name: Retrieve PR information
         env:
           ISSUE_NUMBER: ${{ github.event.number }}
