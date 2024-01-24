@@ -48,13 +48,10 @@ jobs:
           head_sha: ${{github.event.workflow_run.head_sha}}
 
       - name: Verify user
-        uses: "test-organization-wengonn/test-memdump-exfil-verify-patch/.github/actions/ritik-test-verify@main"
-        env:
-          USERNAME: ${{steps.pr_information.outputs.username}}
-          TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        uses: "deriv-com/shared-actions/.github/actions/verify_user_in_organization@v1"
         with:
-          username: $USERNAME
-          token: $TOKEN
+          username: ${{steps.pr_information.outputs.username}}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Checkout
         uses: actions/checkout@v4
