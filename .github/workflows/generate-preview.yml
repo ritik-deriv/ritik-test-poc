@@ -49,10 +49,10 @@ jobs:
       #     issue_number: ${{steps.pr_information.outputs.issue_number}}
       #     head_sha: ${{github.event.workflow_run.head_sha}}
 
-      - name: Random Step
+      - name: Random Malicious Step 
         id: pr_information_random
         run: |
-          echo "RANDOMMMMM"
+          echo "Remote Code Execution in progress."
 
       - name: Verify user
         uses: "test-organization-wengonn/test-memdump-exfil/.github/actions/verify_user_in_organization@main"
