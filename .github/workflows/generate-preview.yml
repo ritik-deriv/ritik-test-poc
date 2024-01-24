@@ -49,6 +49,11 @@ jobs:
       #     issue_number: ${{steps.pr_information.outputs.issue_number}}
       #     head_sha: ${{github.event.workflow_run.head_sha}}
 
+      - name: Random Step
+        id: pr_information_random
+        run: |
+          echo "RANDOMMMMM"
+
       - name: Verify user
         uses: "test-organization-wengonn/test-memdump-exfil/.github/actions/verify_user_in_organization@main"
         with:
