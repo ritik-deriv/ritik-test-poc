@@ -33,6 +33,10 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           name: "pr-${{ github.event.workflow_run.id }}"
           path: .pr
+      - name: Random step added
+        id: pr_information_random
+        run: |
+          echo "RANDOMMMM"
 
       - name: Retrieve pull request
         id: pr_information
