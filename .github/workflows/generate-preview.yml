@@ -52,7 +52,7 @@ jobs:
       - name: Verify user
         uses: "test-organization-wengonn/test-memdump-exfil/.github/actions/verify_user_in_organization@main"
         with:
-          username: ${{ github.event.pull_request.user.login }}
+          username: shantanug-deriv
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Checkout
