@@ -25,33 +25,33 @@ jobs:
   build_and_deploy_preview_link:
     runs-on: Ubuntu-latest
     steps:
-      # - name: Download artifact
-      #   id: download-artifact
-      #   uses: dawidd6/action-download-artifact@v2
-      #   with:
-      #     workflow_conclusion: success
-      #     run_id: ${{ github.event.workflow_run.id }}
-      #     name: "pr-${{ github.event.workflow_run.id }}"
-      #     path: .pr
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow_conclusion: success
+          run_id: ${{ github.event.workflow_run.id }}
+          name: "pr-${{ github.event.workflow_run.id }}"
+          path: .pr
 
-      # - name: Retrieve pull request
-      #   id: pr_information
-      #   run: |
-      #     echo "username=$(cat .pr/USERNAME)" >> $GITHUB_OUTPUT
-      #     echo "issue_number=$(cat .pr/ISSUE_NUMBER)" >> $GITHUB_OUTPUT
+      - name: Retrieve pull request
+        id: pr_information
+        run: |
+          echo "username=$(cat .pr/USERNAME)" >> $GITHUB_OUTPUT
+          echo "issue_number=$(cat .pr/ISSUE_NUMBER)" >> $GITHUB_OUTPUT
    
-      # - name: Post preview build comment
-      #   id: post_preview_build_comment
-      #   uses: "deriv-com/shared-actions/.github/actions/post_preview_build_comment@v1"
-      #   with:
-      #     issue_number: ${{steps.pr_information.outputs.issue_number}}
-      #     head_sha: ${{github.event.workflow_run.head_sha}}
+      - name: Post preview build comment
+        id: post_preview_build_comment
+        uses: "deriv-com/shared-actions/.github/actions/post_preview_build_comment@v1"
+        with:
+          issue_number: ${{steps.pr_information.outputs.issue_number}}
+          head_sha: ${{github.event.workflow_run.head_sha}}
 
-      # - name: Verify user
-      #   uses: "deriv-com/shared-actions/.github/actions/verify_user_in_organization@v1"
-      #   with:
-      #     username: ${{steps.pr_information.outputs.username}}
-      #     token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Verify user
+        uses: "deriv-com/shared-actions/.github/actions/verify_user_in_organization@v1"
+        with:
+          username: ${{steps.pr_information.outputs.username}}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -63,16 +63,16 @@ jobs:
         with:
           node-version: 18.16
 
-      # - name: Install dependencies
-      #   uses: "deriv-com/shared-actions/.github/actions/npm_install@v1"
+      - name: Install dependencies
+        uses: "deriv-com/shared-actions/.github/actions/npm_install@v1"
 
-      # - name: Build
-      #   uses: "./.github/actions/build"
-      #   with:
-      #     GD_API_KEY: ${{ secrets.GD_API_KEY }}
-      #     GD_APP_ID: ${{ secrets.GD_APP_ID }}
-      #     GD_CLIENT_ID: ${{ secrets.GD_CLIENT_ID }}
-      #     TRACKJS_TOKEN: ${{ secrets.TRACKJS_TOKEN }}
+      - name: Build
+        uses: "./.github/actions/build"
+        with:
+          GD_API_KEY: ${{ secrets.GD_API_KEY }}
+          GD_APP_ID: ${{ secrets.GD_APP_ID }}
+          GD_CLIENT_ID: ${{ secrets.GD_CLIENT_ID }}
+          TRACKJS_TOKEN: ${{ secrets.TRACKJS_TOKEN }}
 
       - name: "Run Tests"
         run: npm run test
