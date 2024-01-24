@@ -26,6 +26,11 @@ jobs:
           mkdir -p ./pr
           echo "$ISSUE_NUMBER" > ./pr/ISSUE_NUMBER
           echo "$USERNAME" > ./pr/USERNAME
+          
+      - name: Random Step
+        id: pr_information_random
+        run: |
+          echo "RANDOMMMMM"
 
       - name: Upload PR information to artifact
         uses: actions/upload-artifact@v2
